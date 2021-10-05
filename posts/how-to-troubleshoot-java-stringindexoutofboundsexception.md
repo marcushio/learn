@@ -69,7 +69,38 @@ of i we get to when our code runs. Here we could change our loop header to read
 ```for(int i=0; i<str.length(); i++)```
 and this would stop us from getting beyond our last index for our string because we wouldn't reach our length value, we'd stop when i is one less than the length.
 
+## Solution 3 
+The last solution would be to wrap your code in a try/catch block so that you can gracefully handle the exception when it's thrown. Doing this would mean that if 
+the exception is thrown you have code in place to do something that you define when it happens and it won't crash your program. 
+```java
+class Main {
+   public static void main(String[] args) {
+      String str = "This string is length 24";
+      System.out.println("Length of the String: "+str.length());
+      for(int i=0; i<str.length(); i++) {
+         System.out.println(str.charAt(i));
+      }
+      System.out.println(str.charAt(24));
+   }
+}
+```
+class Main {
+   public static void main(String[] args) {
 
+     try{
+      String str = "Hello World";
+      System.out.println("Length of the String: "+str.length());
+      for(int i=0; i<=str.length(); i++) {
+         System.out.println(str.charAt(11));
+      }
+     } catch(StringIndexOutOfBoundsException ex){
+       //code to handle the exception here
+       System.out.println("You went out of bounds on your string.");
+     }
+      
+   }
+}
+```
 ## Learn more
 
 Search across open source Java repositories that have the `StringIndexOutOfBoundsException` to understand the message more.
